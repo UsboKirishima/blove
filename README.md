@@ -1,2 +1,2 @@
 # blove
-Blove is a simple tiling window manager.
+Powerful nsfw search engine

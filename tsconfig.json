@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es6",                      // Target ECMAScript version
+    "module": "NodeNext",                 // Module code generation
+    "moduleResolution": "NodeNext",           // Module resolution strategy
+    "baseUrl": ".",                       // Base directory for relative paths
+    "paths": {
+      "@providers/*": ["./providers/*"],
+      "@rest/*": ["./rest/*"],
+      "@typings/*": ["./typings/*"],
+      "@client/*": ["./client/*"],
+      "@utils/*": ["./utils/*"]
+    },
+    "outDir": "./dist",                   // Output directory for compiled files
+    "rootDir": "./",                      // Root directory of the source files
+    "strict": true,                       // Enable all strict type-checking options
+    "esModuleInterop": true,              // Enable interoperability between CommonJS and ES Modules
+    "skipLibCheck": true,                 // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names
+    "resolveJsonModule": true,            // Allow importing .json files
+    "isolatedModules": true,              // Ensure all files can be transpiled independently
+    "noEmitOnError": true                 // Do not emit output if there are any errors
+  },
+  "include": [
+    "blove.ts",
+    "client/**/*",
+    "providers/**/*",
+    "rest/**/*",
+    "typings/**/*",
+    "utils/**/*"
+  ],
+  "exclude": [
+    "node_modules",                      // Exclude node_modules directory
+    "dist"                               // Exclude output directory
+  ]
+}
