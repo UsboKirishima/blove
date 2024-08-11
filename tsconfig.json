@@ -9,7 +9,8 @@
       "@rest/*": ["./rest/*"],
       "@typings/*": ["./typings/*"],
       "@client/*": ["./client/*"],
-      "@utils/*": ["./utils/*"]
+      "@utils/*": ["./utils/*"],
+      "@handler/*": ["./handler/*"]
     },
     "outDir": "./dist",                   // Output directory for compiled files
     "rootDir": "./",                      // Root directory of the source files
@@ -28,7 +29,7 @@
     "rest/**/*",
     "typings/**/*",
     "utils/**/*"
-  ],
+, "handler/handle_providers.ts"  ],
   "exclude": [
     "node_modules",                      // Exclude node_modules directory
     "dist"                               // Exclude output directory

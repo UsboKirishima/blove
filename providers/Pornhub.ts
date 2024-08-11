@@ -1,7 +1,8 @@
-import { RestManagerConfig } from "../typings/RestMaganerTypes";
+import { RestManagerConfig } from "@typings/RestMaganerTypes";
 import { Rest } from "../rest/Rest";
 import { pornhubDomains } from "../costants/domains";
 import { AxiosResponse } from "axios";
+import type { Provider } from '../constructors/Provider';
 
 interface PornhubRes {
     search(q: string): Promise<object>;
@@ -44,7 +45,7 @@ export interface Video {
     segment: string;
 }
 
-export interface VideoResponse {
+export interface PornhubResponse {
     videos: Video[];
 }
 
@@ -61,7 +62,7 @@ const rest = new Rest.RestManager({
     baseURL: pornhubDomains.baseURL,
 });
 
-export default class PornhubProvider implements PornhubRes {
+export class PornhubProvider implements Provider {
 
     /**
      * PornhubProvider - search();
@@ -72,10 +73,10 @@ export default class PornhubProvider implements PornhubRes {
      * ```
      * @public
      */
-    public async search(q: string): Promise<VideoResponse> {
+    public async search(q: string): Promise<PornhubResponse> {
 
-        const response = await rest.get<VideoResponse>(pornhubDomains.searchURL + q);
-        const data: VideoResponse = await response.data;
+        const response = await rest.get<PornhubResponse>(pornhubDomains.searchURL + q);
+        const data: PornhubResponse = await response.data;
 
         return data;
     }
