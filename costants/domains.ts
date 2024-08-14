@@ -5,5 +5,5 @@ type pornhubT = {
 
 export const pornhubDomains: pornhubT = {
     baseURL: 'https://pornhub.com',
-    searchURL: '/webmasters/search?'
+    searchURL: '/webmasters/search?search='
 } 
