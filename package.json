@@ -21,7 +21,9 @@
   },
   "dependencies": {
     "@types/express": "^4.17.21",
+    "@types/prompt-sync": "^4.2.3",
     "axios": "^1.7.3",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "prompt-sync": "^4.2.0"
   }
 }
