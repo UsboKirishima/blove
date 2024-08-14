@@ -60,7 +60,6 @@ dist/
 
 # Gatsby.js
 .cache/
-public/
 
 # Serverless Framework
 .serverless/

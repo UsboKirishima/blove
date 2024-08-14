@@ -1,6 +1,8 @@
 /// <reference path="./rest/Rest.ts" />
 import { Rest } from "./rest/Rest";
-import { Client } from "./client/Client";
+import { Client } from "./cli/Client";
+
+import { app } from './client/app';
 
 import { PornhubProvider } from "./providers";
 import { RedtubeProvider } from "./providers";
@@ -27,6 +29,28 @@ import type { RTVideo } from "./providers"; //Types
 
 // })()
 
+const PORT: number = 5423;
+
+const coloredText = (text: string, colorCode: number) => `\x1b[${colorCode}m${text}\x1b[0m`;
+
+const welcomeMessage = String.raw`
+${coloredText('⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀', 34)}
+${coloredText('⠀⠀⠀⠀⢰⣿⡿⠗⠀⠠⠄⡀⠀⠀⠀⠀', 33)}${coloredText('    Welcome to Blove!', 32)}
+${coloredText('⠀⠀⠀⠀⡜⠁⠀⠀⠀⠀⠀⠈⠑⢶⣶⡄', 33)}${coloredText('  ---------------------', 37)}
+${coloredText('⢀⣶⣦⣸⠀⢼⣟⡇⠀⠀⢀⣀⠀⠘⡿⠃', 33)}${coloredText('    Nsfw Search Engine', 35)}
+${coloredText('⠀⢿⣿⣿⣄⠒⠀⠠⢶⡂⢫⣿⢇⢀⠃⠀', 33)}${coloredText('    By UsboKirishima', 36)}
+${coloredText('⠀⠈⠻⣿⣿⣿⣶⣤⣀⣀⣀⣂⡠⠊', 31)}
+${coloredText('⠀⠀⠀⠃⠀⠀⠉⠙⠛⠿⣿⣿⣧⠀⠀⠀', 31)}${coloredText('    Listing on:', 32)}
+${coloredText('⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⠘⣿⣿⡇⠀⠀', 33)}${coloredText('    http://localhost:', 34)}${coloredText(PORT.toString(), 32)}
+${coloredText('⠀⠀⠀⣷⣄⡀⠀⠀⠀⢀⣴⡟⠿⠃', 33)}
+${coloredText('⠀⠀⠀⢻⣿⣿⠉⠉⢹⣿⣿⠁⠀⠀⠀', 33)}${coloredText('    ~ Enjoy!', 32)}
+${coloredText('⠀⠀⠀⠀⠉⠁⠀⠀⠀⠉⠁', 34)}
+`;
+
 (async () => {
-    await new Client().run();
+    app.listen(PORT, () => {
+        console.log(welcomeMessage);
+
+        //await new Client().run();
+    })
 })()

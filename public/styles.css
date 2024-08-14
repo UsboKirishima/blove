@@ -1,0 +1,145 @@
+:root {
+    --arrow-bg: rgba(255, 255, 255, 0.3);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+    --option-bg: white;
+    --select-bg: rgba(255, 255, 255, 0.2);
+  }
+
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+}
+
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.video-card {
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+}
+
+.video-card:hover {
+    transform: scale(1.05);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #444;
+}
+
+.video-info {
+    padding: 10px;
+}
+
+.video-info h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.video-info p {
+    margin: 5px 0;
+}
+
+img {
+    width: 15%;
+    margin: 2% auto;
+    display: block;
+    background-color: #444;
+    padding: 5px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10%;
+}
+
+form>input {
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    background-color: #444;
+    border: 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    color: #fff;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+
+form>input:focus {
+    outline: none;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20rem;
+    margin-right: 5px;
+    padding: 1rem 4rem 1rem 1rem;
+    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+        linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    color: white;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    option {
+        color: #fff;
+        background-color: #444;
+    }
+}
+
+button {
+    width: 10rem;
+    padding: 1rem 2rem;
+    background-color: #444;
+    border: 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    color: #fff;
+    margin-right: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #222;
+    transition: 0.3s;
+}

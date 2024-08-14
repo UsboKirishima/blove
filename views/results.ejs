@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="/image.png" alt="logo">
+        <h1>Search Results for <%= query %>
+        </h1>
+        <div class="video-grid">
+            <% videos.forEach(video=> { %>
+                <a href="<%= video.url %>" target="_blank" class="video-card">
+                    <img src="<%= video.thumb %>" alt="<%= video.title %>" class="video-thumbnail">
+                    <div class="video-info">
+                        <h2>
+                            <%= video.title %>
+                        </h2>
+                        <p>Views: <%= video.views %>
+                        </p>
+                        <p>Duration: <%= video.duration %>
+                        </p>
+                        <p>Rating: <%= video.rating %>
+                        </p>
+                    </div>
+                </a>
+                <% }) %>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -2,7 +2,7 @@ import promptSync from 'prompt-sync';
 import { CommandsHandler } from './CommandsHandler';
 
 export interface ClientType {
-    run(): Promise<void>
+    run(): Promise<void>;
 };
 
 export interface Colors {
@@ -36,8 +36,8 @@ export class Client implements ClientType {
      * @param buffer 
      * @returns print of colored string
      */
-    private async print_colored(color: number, buffer: string): Promise<void> {
-        return await console.log(`\x1b[${color}m${buffer}\x1b[0m`);
+    private print_colored(color: number, buffer: string): void {
+        console.log(`\x1b[${color}m${buffer}\x1b[0m`);
     }
 
     /**
@@ -47,8 +47,8 @@ export class Client implements ClientType {
      * @param buffer 
      * @returns colored string
      */
-    private async colorString(color: number, buffer: string): Promise<string> {
-        return `\x1b[${color}m${buffer}`
+    private colorString(color: number, buffer: string): string {
+        return `\x1b[${color}m${buffer}`;
     }
 
     /**
@@ -57,7 +57,6 @@ export class Client implements ClientType {
      * @returns void of the main client processes
      */
     public async run(): Promise<void> {
-
         this.print_colored(colors.Yellow, String.raw`
 ⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢰⣿⡿⠗⠀⠠⠄⡀⠀⠀⠀⠀    Welcome to Blove!
@@ -71,17 +70,22 @@ export class Client implements ClientType {
 ⠀⠀⠀⢻⣿⣿⠉⠉⢹⣿⣿⠁⠀⠀⠀⠀    ~ Enjoy!
 ⠀⠀⠀⠀⠉⠁⠀⠀⠀⠉⠁⠀⠀⠀⠀⠀`);
 
-            const prompt = promptSync();
-            const commands_parser = new CommandsHandler();
-            let input: string = String();
+        const prompt = promptSync();
+        const commands_parser = new CommandsHandler();
+        let input: string = '';
 
-            while(input.toLowerCase() != 'exit') {
-                input = prompt(
-                    `> `
-                );
+        while(input.toLowerCase() !== 'exit') {
+            input = prompt('> ');
 
-                await commands_parser.parseCommand(input);
+            if (input.trim()) {
+                try {
+                    await commands_parser.parseCommand(input);
+                } catch (error: any) {
+                    this.print_colored(colors.Red, 'Error processing command: ' + error.message);
+                }
             }
+        }
 
+        this.print_colored(colors.Green, 'Goodbye!');
     }
 }

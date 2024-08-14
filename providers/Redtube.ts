@@ -19,7 +19,7 @@ export interface RTVideo {
     embed_url: string;
     default_thumb: string;
     thumb: string;
-    publish_date: boolean | string;
+    publish_date: boolean | string; 
     thumbs: Thumb[];
 }
 
